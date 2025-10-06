@@ -1,172 +1,161 @@
-# Expense Tracker v1
+# Expense Tracker
 
-Expense Tracker v1 is a modern web application built with [React.js](https://reactjs.org/), styled using [Tailwind CSS](https://tailwindcss.com/), and powered by [Firebase](https://firebase.google.com/). This application leverages custom hooks and the React Context API to manage and track the global state of user transactions in real-time, offering a seamless and responsive user experience.
+A modern, real-time expense tracking application built with React, Firebase, and Tailwind CSS. Track your income and expenses with a clean, responsive interface and secure Google authentication.
 
-## Table of Contents
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![React](https://img.shields.io/badge/React-18.x-61dafb.svg)
+![Firebase](https://img.shields.io/badge/Firebase-Latest-orange.svg)
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [API](#api)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+## ✨ Features
 
-## Installation
+- 🔐 **Secure Authentication** - Google Sign-In integration
+- 💰 **Transaction Management** - Add, view, and delete income/expenses
+- 📊 **Real-time Updates** - Instant data synchronization across devices
+- 🎨 **Modern UI** - Clean, responsive design with Tailwind CSS
+- 🔥 **Firebase Backend** - Cloud Firestore for data storage
+- 📱 **Fully Responsive** - Works seamlessly on all devices
 
-Follow these steps to set up and run the project locally.
+## 🚀 Demo
 
-### Prerequisites
+[Live Demo](#) _(Add your deployed link here)_
 
-Ensure you have the following prerequisites installed:
+## 📸 Screenshots
 
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
-- [Firebase CLI](https://firebase.google.com/docs/cli)
+_(Add screenshots of your application here)_
 
-Install the Firebase CLI globally if you haven't already:
+## 🛠️ Tech Stack
 
-```bash
-npm install -g firebase-tools
+- **Frontend:** React.js, Vite
+- **Styling:** Tailwind CSS
+- **Backend:** Firebase (Authentication & Firestore)
+- **State Management:** React Context API
+- **Hooks:** Custom hooks for transaction management
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- A [Firebase](https://firebase.google.com/) account
+
+## ⚙️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Jeevanm2004/expense-tracker.git
+   cd expense-tracker
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up Firebase**
+   - Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/)
+   - Enable Google Authentication
+   - Create a Firestore Database
+   - Copy your Firebase configuration
+
+4. **Configure environment variables**
+   
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_FIREBASE_API_KEY=your_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   VITE_FIREBASE_PROJECT_ID=your_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+   VITE_FIREBASE_APP_ID=your_app_id
+   ```
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   
+   Navigate to `http://localhost:5173`
+
+## 📁 Project Structure
+
+```
+expense-tracker/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── AddTransaction.jsx
+│   │   ├── Balance.jsx
+│   │   ├── TransactionHistory.jsx
+│   │   └── TransactionItem.jsx
+│   ├── context/
+│   │   ├── AppReducer.js
+│   │   └── GlobalState.jsx
+│   ├── hooks/
+│   │   ├── useAddTransaction.js
+│   │   ├── useGetTransactions.js
+│   │   └── useGetUserInfo.js
+│   ├── pages/
+│   │   ├── auth/
+│   │   └── expense-tracker/
+│   ├── config/
+│   │   └── firebase-config.js
+│   ├── App.jsx
+│   └── main.jsx
+├── .env
+└── package.json
 ```
 
-### Clone the Repository
+## 🎯 Usage
 
-Clone the repository to your local machine:
+1. **Sign In** - Click the "Sign in with Google" button
+2. **View Balance** - See your current balance at the top
+3. **Add Transaction** - Enter description and amount, select type (income/expense)
+4. **View History** - See all your transactions listed below
+5. **Delete Transaction** - Click the delete button on any transaction to remove it
 
-```bash
-git clone https://github.com/yourusername/yourprojectname.git
-cd yourprojectname
-```
+## 🔮 Future Enhancements
 
-### Install Dependencies
+- [ ] Edit existing transactions
+- [ ] Filter transactions by date range
+- [ ] Sort transactions (by date, amount, type)
+- [ ] Export transactions to CSV/PDF
+- [ ] Budget setting and alerts
+- [ ] Data visualization with charts
+- [ ] Dark mode toggle
+- [ ] Multiple currency support
 
-Install the project dependencies using npm:
+## 🤝 Contributing
 
-```bash
-npm install
-```
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Set Up Firebase
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Configure Firebase for the project:
+## 📄 License
 
-1. Create a Firebase project in the Firebase console.
-2. Add your Firebase configuration to the project.
-3. Initialize Firebase in your project directory:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```bash
-firebase init
-```
+## 👤 Author
 
-### Environment Variables
+**Jeevan M**
 
-Create a `.env` file in the root directory and add the necessary environment variables for Firebase configuration:
+- GitHub: [@Jeevanm2004](https://github.com/Jeevanm2004)
+- Portfolio: [jeevanm-portfolio.netlify.app](https://jeevanm-portfolio.netlify.app)
+- LinkedIn: [linkedin.com/in/jeevanabhi](https://www.linkedin.com/in/jeevanabhi)
 
-```plaintext
-REACT_APP_FIREBASE_API_KEY=your_api_key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
-REACT_APP_FIREBASE_PROJECT_ID=your_project_id
-REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-REACT_APP_FIREBASE_APP_ID=your_app_id
-```
+## 🙏 Acknowledgements
 
-## Usage
-
-Instructions for running and using the project.
-
-### Running the Development Server
-
-Start the development server:
-
-```bash
-npm start
-```
-
-Open your browser and navigate to `http://localhost:3000` to view the application.
-
-## Features
-
-Key features and functionalities of the project include:
-
-- **User Authentication:** Secure login using Google accounts.
-- **Transaction Management:** Add, view, and manage income and expenses seamlessly.
-- **Real-time Data Fetching:** Instant updates to transaction data using Firebase Firestore, accessible across devices.
-- **Responsive Design:** Fully responsive layout using Tailwind CSS for an optimal user experience on all devices.
-
-### Future Enhancements
-
-- **Sorting Transaction History:** Enhanced sorting options for better transaction management.
-- **Editable Transactions:** Ability to edit existing transaction entries.
-- **Additional Features:** More functionalities to improve user experience.
-
-## API
-
-Details about the API endpoints, request formats, and examples.
-
-### Endpoints
-
-- `GET /transactions`: Retrieve all transactions.
-- `POST /transactions`: Create a new transaction.
-- `DELETE /transactions/:id`: Delete a transaction by ID.
-
-### Example Request
-
-Here is an example of how to create a new transaction using curl:
-
-```bash
-curl -X POST http://localhost:3000/transactions -d '{"transactionType": "expense", "transactionAmount": 100}'
-```
-
-## Contributing
-
-We welcome contributions to enhance the project. Follow these steps to contribute:
-
-### Fork the Repository
-
-Fork the repository to your GitHub account:
-
-```bash
-git clone https://github.com/yourusername/yourprojectname.git
-```
-
-### Create a Branch
-
-Create a new branch for your feature or bug fix:
-
-```bash
-git checkout -b feature/your-feature-name
-```
-
-### Commit Your Changes
-
-Commit your changes with a descriptive commit message:
-
-```bash
-git commit -m 'Add new feature'
-```
-
-### Push to the Branch
-
-Push your branch to GitHub:
-
-```bash
-git push origin feature/your-feature-name
-```
-
-### Open a Pull Request
-
-Open a pull request in the GitHub repository with a detailed description of your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Acknowledgements
-
-We would like to thank the following resources and libraries for their invaluable contributions:
-
-- [React](https://reactjs.org/)
-- [Firebase](https://firebase.google.com/)
+- [React Documentation](https://reactjs.org/)
+- [Firebase Documentation](https://firebase.google.com/docs)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+
+---
+
+⭐ Star this repository if you found it helpful!
