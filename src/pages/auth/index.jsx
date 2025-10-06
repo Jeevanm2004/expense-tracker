@@ -1,7 +1,6 @@
 import { auth, provider } from '../../config/firebase-config'
 import { signInWithPopup } from 'firebase/auth'
 import { Navigate, useNavigate } from 'react-router-dom'
-import logo from '../../../public/tab-logo.png'
 import { useGetUserInfo } from '../../hooks/useGetUserInfo'
 
 export const Auth = () => {
@@ -29,7 +28,7 @@ export const Auth = () => {
                 <h1 className="text-center text-3xl font-bold text-white drop-shadow-lg md:text-5xl">
                     Expense Tracker V1
                 </h1>
-                <img src={logo} alt="" className="w-full max-w-[250px]" />
+                <img src="/tab-logo.png" alt="" className="w-full max-w-[250px]" />
                 <div className="flex flex-col items-center gap-2">
                     <p className="text-center text-xl font-medium text-teal-50">
                         sign in, with your google account
