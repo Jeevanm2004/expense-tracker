@@ -1,10 +1,14 @@
-# Expense Tracker
+# Expense Tracker V1
 
 A modern, real-time expense tracking application built with React, Firebase, and Tailwind CSS. Track your income and expenses with a clean, responsive interface and secure Google authentication.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![React](https://img.shields.io/badge/React-18.x-61dafb.svg)
 ![Firebase](https://img.shields.io/badge/Firebase-Latest-orange.svg)
+
+## 🚀 Live Demo
+
+**[View Live Application](https://jeevan-expense-tracker.netlify.app)**
 
 ## ✨ Features
 
@@ -15,21 +19,24 @@ A modern, real-time expense tracking application built with React, Firebase, and
 - 🔥 **Firebase Backend** - Cloud Firestore for data storage
 - 📱 **Fully Responsive** - Works seamlessly on all devices
 
-## 🚀 Demo
-
-[Live Demo](#) _(Add your deployed link here)_
-
 ## 📸 Screenshots
 
-_(Add screenshots of your application here)_
+### Login Page
+![Login Page](./screenshots/login.png)
+*Secure Google authentication for user access*
+
+### Dashboard
+![Dashboard](./screenshots/dashboard.png)
+*Track your balance, income, expenses, and transaction history*
 
 ## 🛠️ Tech Stack
 
 - **Frontend:** React.js, Vite
 - **Styling:** Tailwind CSS
 - **Backend:** Firebase (Authentication & Firestore)
-- **State Management:** React Context API
-- **Hooks:** Custom hooks for transaction management
+- **Routing:** React Router DOM
+- **Deployment:** Netlify
+- **State Management:** React Hooks (useState, useEffect)
 
 ## 📋 Prerequisites
 
@@ -39,82 +46,139 @@ Before you begin, ensure you have the following installed:
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 - A [Firebase](https://firebase.google.com/) account
 
-## ⚙️ Installation
+## ⚙️ Installation & Setup
 
-1. **Clone the repository**
+### 1. Clone the repository
+```bash
+git clone https://github.com/Jeevanm2004/expense-tracker.git
+cd Expense-tracker-v1-main
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Set up Firebase
+
+**Create a Firebase Project:**
+- Go to [Firebase Console](https://console.firebase.google.com/)
+- Click "Add project" or select an existing project
+- Click the gear icon ⚙️ → "Project settings"
+- Scroll down to "Your apps" section
+- Click the web icon (`</>`) to register your app
+- Copy the Firebase configuration object
+
+**Enable Authentication:**
+- In Firebase Console, go to "Authentication"
+- Click "Get started"
+- Enable "Google" sign-in method
+
+**Create Firestore Database:**
+- Go to "Firestore Database"
+- Click "Create database"
+- Start in "Test mode" (you can change security rules later)
+- Choose your preferred location
+
+### 4. Configure environment variables
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_API_KEY=your_api_key_here
+VITE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+VITE_PROJECT_ID=your_project_id
+VITE_STORAGE_BUCKET=your_project_id.appspot.com
+VITE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_APP_ID=your_app_id
+VITE_MEASUREMENT_ID=your_measurement_id
+```
+
+Replace the values with your Firebase configuration from step 3.
+
+### 5. Run the development server
+```bash
+npm run dev
+```
+
+### 6. Open your browser
+
+Navigate to `http://localhost:5173`
+
+## 🚀 Deployment
+
+This project is deployed on Netlify. To deploy your own version:
+
+### Deploy to Netlify
+
+1. **Build the project:**
    ```bash
-   git clone https://github.com/Jeevanm2004/expense-tracker.git
-   cd expense-tracker
+   npm run build
    ```
 
-2. **Install dependencies**
+2. **Deploy via Netlify CLI:**
    ```bash
-   npm install
+   npm install -g netlify-cli
+   netlify login
+   netlify deploy --prod --dir=dist
    ```
 
-3. **Set up Firebase**
-   - Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   - Enable Google Authentication
-   - Create a Firestore Database
-   - Copy your Firebase configuration
+3. **Or deploy via Netlify Dashboard:**
+   - Push your code to GitHub
+   - Connect your repository to Netlify
+   - Set build command: `npm run build`
+   - Set publish directory: `dist`
+   - Add environment variables in Netlify dashboard
 
-4. **Configure environment variables**
-   
-   Create a `.env` file in the root directory:
-   ```env
-   VITE_FIREBASE_API_KEY=your_api_key
-   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   ```
+4. **Add Environment Variables in Netlify:**
+   - Go to Site settings → Environment variables
+   - Add all your `VITE_*` variables from your `.env` file
 
-5. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-6. **Open your browser**
-   
-   Navigate to `http://localhost:5173`
+5. **Update Firebase Authorized Domains:**
+   - In Firebase Console → Authentication → Settings
+   - Add your Netlify domain to "Authorized domains"
 
 ## 📁 Project Structure
 
 ```
 expense-tracker/
 ├── public/
+│   └── tab-logo.png
 ├── src/
-│   ├── components/
-│   │   ├── AddTransaction.jsx
-│   │   ├── Balance.jsx
-│   │   ├── TransactionHistory.jsx
-│   │   └── TransactionItem.jsx
-│   ├── context/
-│   │   ├── AppReducer.js
-│   │   └── GlobalState.jsx
+│   ├── config/
+│   │   └── firebase-config.js
 │   ├── hooks/
 │   │   ├── useAddTransaction.js
 │   │   ├── useGetTransactions.js
 │   │   └── useGetUserInfo.js
 │   ├── pages/
 │   │   ├── auth/
+│   │   │   └── index.jsx
 │   │   └── expense-tracker/
-│   ├── config/
-│   │   └── firebase-config.js
+│   │       └── index.jsx
 │   ├── App.jsx
+│   ├── index.css
 │   └── main.jsx
 ├── .env
-└── package.json
+├── .gitignore
+├── index.html
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
 ```
 
 ## 🎯 Usage
 
-1. **Sign In** - Click the "Sign in with Google" button
-2. **View Balance** - See your current balance at the top
-3. **Add Transaction** - Enter description and amount, select type (income/expense)
-4. **View History** - See all your transactions listed below
-5. **Delete Transaction** - Click the delete button on any transaction to remove it
+1. **Sign In** - Click the "Google" button to sign in with your Google account
+2. **View Balance** - See your current balance, total income, and total expenses
+3. **Add Transaction** 
+   - Enter a description
+   - Enter the amount
+   - Select transaction type (Income or Expense)
+   - Click "Add Transaction"
+4. **View History** - See all your transactions in the history section
+5. **Delete Transaction** - Click the delete button (×) on any transaction to remove it
+6. **Sign Out** - Click the "Logout" button in the top right
 
 ## 🔮 Future Enhancements
 
@@ -123,9 +187,11 @@ expense-tracker/
 - [ ] Sort transactions (by date, amount, type)
 - [ ] Export transactions to CSV/PDF
 - [ ] Budget setting and alerts
-- [ ] Data visualization with charts
+- [ ] Data visualization with charts and graphs
 - [ ] Dark mode toggle
 - [ ] Multiple currency support
+- [ ] Category-based expense tracking
+- [ ] Monthly/yearly spending reports
 
 ## 🤝 Contributing
 
@@ -148,6 +214,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - GitHub: [@Jeevanm2004](https://github.com/Jeevanm2004)
 - Portfolio: [jeevanm-portfolio.netlify.app](https://jeevanm-portfolio.netlify.app)
 - LinkedIn: [linkedin.com/in/jeevanabhi](https://www.linkedin.com/in/jeevanabhi)
+- Live Project: [jeevan-expense-tracker.netlify.app](https://jeevan-expense-tracker.netlify.app)
 
 ## 🙏 Acknowledgements
 
@@ -155,7 +222,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Firebase Documentation](https://firebase.google.com/docs)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vite](https://vitejs.dev/)
+- [Netlify](https://www.netlify.com/)
 
 ---
 
 ⭐ Star this repository if you found it helpful!
+
+**Built with ❤️ by Jeevan M**
