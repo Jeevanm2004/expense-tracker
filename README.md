@@ -1,4 +1,4 @@
-# Expense Tracker V1
+# Expense Tracker 
 
 A modern, real-time expense tracking application built with React, Firebase, and Tailwind CSS. Track your income and expenses with a clean, responsive interface and secure Google authentication.
 
