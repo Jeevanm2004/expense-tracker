@@ -31,8 +31,8 @@ const Balance = () => {
                 <h2 className="font-medium md:text-lg">Your Balance</h2>
                 <p className="text-3xl md:text-5xl">
                     {balanceAmount < 0
-                        ? `-LKR${Math.abs(balanceAmount).toFixed(2)}`
-                        : `LKR${Math.abs(balanceAmount).toFixed(2)}`}
+                        ? `-INR${Math.abs(balanceAmount).toFixed(2)}`
+                        : `INR${Math.abs(balanceAmount).toFixed(2)}`}
                 </p>
             </div>
 
@@ -43,7 +43,7 @@ const Balance = () => {
                         <h2 className="font-medium md:text-lg">Income</h2>
                     </div>
                     <p className="text-lg md:text-xl">
-                        LKR{incomeAmount.toFixed(2)}
+                        INR{incomeAmount.toFixed(2)}
                     </p>
                 </div>
                 <div className="w-full">
@@ -52,7 +52,7 @@ const Balance = () => {
                         <h2 className="font-medium md:text-lg">Expenses</h2>
                     </div>
                     <p className="text-lg md:text-xl">
-                        -LKR{expenseAmount.toFixed(2)}
+                        -INR{expenseAmount.toFixed(2)}
                     </p>
                 </div>
             </div>
