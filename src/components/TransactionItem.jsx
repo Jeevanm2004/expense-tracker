@@ -19,7 +19,7 @@ const TransactionItem = ({
             </div>
             <div className="flex items-center gap-4 transition-all duration-300 ease-linear">
                 <p>
-                    LKR
+                    INR
                     {Number(transactionAmount).toFixed(2)}
                 </p>
                 {/* <HiOutlineTrash className="translate-x-[100px] rounded-full bg-red-400 p-[6px] text-3xl capitalize text-white transition-transform duration-300 ease-in-out hover:bg-red-300 group-hover:translate-x-0" /> */}
